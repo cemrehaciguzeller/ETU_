@@ -1,6 +1,6 @@
 import sys
 import os
-import serial
+##import serial
 import requests
 from datetime import datetime, timedelta
 from PyQt5.QtWidgets import (
@@ -21,10 +21,10 @@ def get_temperature(city):
         return data["main"]["temp"]
     except:
         return None
-def get_sensor_values(port='COM3', baudrate=9600, timeout=2):
+##def get_sensor_values(port='COM3', baudrate=9600, timeout=2):
     try:
-        with serial.Serial(port, baudrate, timeout=timeout) as ser:
-            line = ser.readline().decode().strip()
+      ##  with serial.Serial(port, baudrate, timeout=timeout) as ser:
+          ##  line = ser.readline().decode().strip()
             # Örnek format: "SICAKLIK:25.6|TOPRAK_NEM:420"
             data_parts = line.split('|')
             temp = None
@@ -224,13 +224,9 @@ class EkinTakipApp(QMainWindow):
             self.notification_label.setText(f"Hata: {str(e)}")
             
     def read_sensor_data(self):
-          temp, soil = get_sensor_values()
-          if temp is not None and soil is not None:
-             self.sensor_temp_label.setText(f"ETU devresi ile elde edilen sıcaklık değeri: {temp} °C")
-             self.sensor_soil_label.setText(f"ETU devresi ile elde edilen toprak nem değeri: {soil}")
-          else:
-              QMessageBox.warning(self, "Hata", "Sensör verileri alınamadı. COM portunu kontrol edin.")
-
+             self.sensor_temp_label.setText(f"ETU devresi ile elde edilen sıcaklık değeri:- °C")
+             self.sensor_soil_label.setText(f"ETU devresi ile elde edilen toprak nem değeri: -")
+         
 
     def view_schedule(self):
         try:
