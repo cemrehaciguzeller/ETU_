@@ -3,7 +3,7 @@ import os
 ##import serial
 import requests
 from datetime import datetime, timedelta
-from PyQt5.QtWidgets import (
+##from PyQt5.QtWidgets import (
     QApplication, QMainWindow, QLabel, QPushButton, QVBoxLayout,
     QWidget, QComboBox, QTextEdit, QCalendarWidget, QMessageBox, QHBoxLayout, QLineEdit
 )
